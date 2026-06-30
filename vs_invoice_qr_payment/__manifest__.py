@@ -7,7 +7,7 @@
                    'Follows the SPAYD (Short Payment Descriptor) standard. '
                    'Customers scan the QR code with their banking app and all payment details — IBAN, amount, '
                    'currency, variable symbol — are filled in automatically. '
-                   'Supports CZK and EUR currencies. '
+                   'Supports any currency. '
                    'QR code appears on the invoice PDF report and in the form view (Other Info tab). '
                    'Full IBAN validation with ISO 13616 checksum. '
                    'Zero configuration — just install and set a valid IBAN on your invoices.',

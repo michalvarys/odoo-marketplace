@@ -68,8 +68,6 @@ class AccountMove(models.Model):
             return False
 
         currency_code = self.currency_id.name
-        if currency_code not in ('CZK', 'EUR'):
-            return False
 
         parts = [
             'SPD*1.0',
