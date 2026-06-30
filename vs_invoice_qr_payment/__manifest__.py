@@ -11,8 +11,8 @@
                    'QR code appears on the invoice PDF report and in the form view (Other Info tab). '
                    'Full IBAN validation with ISO 13616 checksum. '
                    'Zero configuration — just install and set a valid IBAN on your invoices.',
-    'author': 'VaryShop',
-    'website': 'https://www.varyshop.eu',
+    'author': 'Michal Varyš',
+    'website': 'https://michalvarys.eu',
     'support': 'info@michalvarys.eu',
     'license': 'LGPL-3',
     'price': 22.00,
