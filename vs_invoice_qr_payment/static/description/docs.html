@@ -1,0 +1,159 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #0f766e;">Documentation &mdash; QR Payment on Invoices (SPAYD)</h2>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 style="color: #0f766e;">Installation</h3>
+            <ol style="font-size: 15px;">
+                <li>Install the module from the Odoo Apps menu.</li>
+                <li>The Python <code>qrcode</code> library is required. Install it with:
+                    <pre style="background: #f1f5f9; padding: 10px; border-radius: 4px;">pip install qrcode[pil]</pre>
+                </li>
+                <li>No additional configuration is needed.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 style="color: #0f766e;">Setting Up Your Bank Account</h3>
+            <ol style="font-size: 15px;">
+                <li>Go to <strong>Accounting &rarr; Configuration &rarr; Bank Accounts</strong></li>
+                <li>Add or edit your bank account</li>
+                <li>Enter your <strong>IBAN</strong> in the account number field (e.g. <code>CZ6508000000192000145399</code>)</li>
+                <li>The IBAN must pass the ISO 13616 checksum validation</li>
+                <li>On your invoices, select this bank account in the <strong>Bank Account</strong> field</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 style="color: #0f766e;">When Does the QR Code Appear?</h3>
+            <p style="font-size: 15px;">The QR code is generated automatically when <strong>all</strong> of these conditions are met:</p>
+            <ul style="font-size: 15px;">
+                <li>The invoice is <strong>posted</strong> (confirmed)</li>
+                <li>The invoice type is <strong>customer invoice</strong> or <strong>vendor bill</strong></li>
+                <li>The invoice is <strong>not fully paid</strong></li>
+                <li>A <strong>bank account with a valid IBAN</strong> is set on the invoice</li>
+                <li>The currency is <strong>CZK</strong> or <strong>EUR</strong></li>
+                <li>The <strong>remaining amount is greater than zero</strong></li>
+            </ul>
+            <p style="font-size: 15px;">
+                The QR code disappears automatically when the invoice is fully paid.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 style="color: #0f766e;">Where Is the QR Code Displayed?</h3>
+            <ul style="font-size: 15px;">
+                <li><strong>Invoice form view:</strong> In the <em>Other Info</em> tab, below the Accounting section. Visible for both customer invoices and vendor bills.</li>
+                <li><strong>PDF report:</strong> Below the payment terms section on the printed/emailed invoice.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 style="color: #0f766e;">SPAYD Format Details</h3>
+            <p style="font-size: 15px;">The module generates QR codes using the <strong>SPAYD</strong> (Short Payment Descriptor) format.</p>
+            <table class="table" style="font-size: 15px;">
+                <thead>
+                    <tr><th>Field</th><th>Example</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>SPD*1.0</code></td><td>&mdash;</td><td>Protocol identifier and version (always present)</td></tr>
+                    <tr><td><code>ACC</code></td><td><code>CZ6508000000192000145399</code></td><td>IBAN of the recipient bank account</td></tr>
+                    <tr><td><code>AM</code></td><td><code>25000.00</code></td><td>Payment amount (remaining balance)</td></tr>
+                    <tr><td><code>CC</code></td><td><code>CZK</code></td><td>Currency code (CZK or EUR)</td></tr>
+                    <tr><td><code>X-VS</code></td><td><code>202600002</code></td><td>Variable symbol (up to 10 digits from invoice number)</td></tr>
+                </tbody>
+            </table>
+            <p style="font-size: 15px;">
+                Full specification: <a href="https://qr-platba.cz/pro-vyvojare/specifikace-formatu/" target="_blank">qr-platba.cz</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 style="color: #0f766e;">Variable Symbol</h3>
+            <p style="font-size: 15px;">
+                The variable symbol (VS) is extracted from the invoice reference (<code>ref</code> field) or invoice number (<code>name</code> field).
+                All non-digit characters are stripped, and the last 10 digits are used.
+            </p>
+            <table class="table" style="font-size: 15px;">
+                <thead>
+                    <tr><th>Invoice Number</th><th>Variable Symbol</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>INV/2026/00002</code></td><td><code>202600002</code></td></tr>
+                    <tr><td><code>BILL/2026/06/0001</code></td><td><code>2026060001</code></td></tr>
+                    <tr><td><code>2026-001234</code></td><td><code>2026001234</code></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 style="color: #0f766e;">Troubleshooting</h3>
+            <table class="table" style="font-size: 15px;">
+                <thead>
+                    <tr><th>Problem</th><th>Solution</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>QR code not visible</td>
+                        <td>Check that the invoice is posted, has a valid IBAN, uses CZK or EUR currency, and is not fully paid.</td>
+                    </tr>
+                    <tr>
+                        <td>Banking app shows error</td>
+                        <td>Verify the IBAN is a real, active bank account. Test IBANs with valid checksums but non-existent accounts may be rejected by some banking apps.</td>
+                    </tr>
+                    <tr>
+                        <td>Foreign IBAN not working</td>
+                        <td>Some banking apps only support domestic IBANs in SPAYD. Use a local IBAN matching your customers' banking apps.</td>
+                    </tr>
+                    <tr>
+                        <td>QR code too small to scan</td>
+                        <td>On PDF reports, the QR code is 150x150px. Print at 100% scale or zoom in on screen before scanning.</td>
+                    </tr>
+                    <tr>
+                        <td><code>qrcode</code> library not found</td>
+                        <td>Install it: <code>pip install qrcode[pil]</code>. The module degrades gracefully &mdash; invoices work normally without the QR code.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">Support</h3>
+        <div class="oe_span12 text-center">
+            <p style="font-size: 16px;">
+                Need help? Contact us at <a href="mailto:info@michalvarys.eu"><strong>info@michalvarys.eu</strong></a>
+            </p>
+        </div>
+    </div>
+</section>

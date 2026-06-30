@@ -1,0 +1,242 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan" style="color: #0f766e;">QR Payment on Invoices &mdash; SPAYD</h2>
+        <h3 class="oe_slogan">SPAYD QR codes on invoices. Customers scan and pay instantly &mdash; no manual typing.</h3>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <div class="oe_span12">
+            <h3 class="oe_slogan" style="color: #0f766e;">The Problem</h3>
+            <p class="oe_mt32 text-center" style="font-size: 16px;">
+                <strong>Customers receive your invoice and have to manually type the IBAN, amount, and variable symbol into their banking app.</strong>
+            </p>
+            <p class="text-center" style="font-size: 16px;">
+                Manual entry is slow, error-prone, and frustrating. A wrong digit in the IBAN or
+                variable symbol means the payment doesn't match, requiring manual reconciliation.
+                For businesses sending dozens of invoices per month, this adds up to real lost time on both sides.
+            </p>
+            <p class="text-center" style="font-size: 16px; color: #0f766e;">
+                <strong>This module adds a scannable QR code to every invoice &mdash;
+                your customers open their banking app, scan, and pay in seconds.</strong>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">How It Works</h3>
+        <div class="oe_span4">
+            <div class="text-center" style="padding: 20px;">
+                <span style="font-size: 48px; color: #0f766e;">&#x1F4C4;</span>
+                <h4><strong>Step 1: Post an Invoice</strong></h4>
+                <p>
+                    Create and confirm an invoice as usual. The QR code is generated
+                    automatically for any posted invoice with a valid IBAN.
+                </p>
+            </div>
+        </div>
+        <div class="oe_span4">
+            <div class="text-center" style="padding: 20px;">
+                <span style="font-size: 48px; color: #0f766e;">&#x1F4F1;</span>
+                <h4><strong>Step 2: Customer Scans QR</strong></h4>
+                <p>
+                    The QR code appears on the invoice PDF and in the Other Info tab.
+                    Customer opens their banking app and scans the code.
+                </p>
+            </div>
+        </div>
+        <div class="oe_span4">
+            <div class="text-center" style="padding: 20px;">
+                <span style="font-size: 48px; color: #0f766e;">&#10003;</span>
+                <h4><strong>Step 3: Payment Pre-filled</strong></h4>
+                <p>
+                    The banking app fills in IBAN, amount, currency, and variable symbol
+                    automatically. Customer just confirms &mdash; zero manual entry.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">QR Code on the Invoice Form</h3>
+        <div class="oe_span12 text-center">
+            <img src="screenshot_form_view.png" alt="QR Payment code in Odoo invoice Other Info tab"
+                 style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);"/>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">QR Code on the PDF Report</h3>
+        <div class="oe_span12 text-center">
+            <img src="screenshot_pdf_report.png" alt="QR Payment code on printed invoice PDF"
+                 style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);"/>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">SPAYD &mdash; QR Payment Standard</h3>
+        <div class="oe_span12 text-center">
+            <img src="screenshot_spayd_format.png" alt="SPAYD format specification and field breakdown"
+                 style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);"/>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">Key Features</h3>
+        <div class="oe_span12">
+            <table class="table" style="font-size: 15px;">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>SPAYD Standard</strong></td>
+                        <td>Follows the official Short Payment Descriptor specification. Compatible with banking apps that support the SPAYD standard.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Customer &amp; Vendor Invoices</strong></td>
+                        <td>QR codes work on both customer invoices (out_invoice) and vendor bills (in_invoice). Pay suppliers just as easily.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IBAN Validation</strong></td>
+                        <td>Full ISO 13616 checksum validation. Only valid IBANs produce a QR code &mdash; no broken payment data.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Variable Symbol</strong></td>
+                        <td>Automatically extracted from the invoice number (up to 10 digits). Essential for payment matching and reconciliation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PDF Report</strong></td>
+                        <td>QR code appears on printed and emailed invoice PDFs below the payment terms. Customers can scan from paper or screen.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Form View</strong></td>
+                        <td>QR code visible in the Other Info tab of the invoice form. Accountants can verify the payment data at a glance.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CZK &amp; EUR</strong></td>
+                        <td>Supports both Czech Koruna and Euro currencies. QR is only generated for these two SPAYD-supported currencies.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Auto-hide</strong></td>
+                        <td>QR code disappears automatically when the invoice is paid or the amount is zero. No visual clutter on settled invoices.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zero Configuration</strong></td>
+                        <td>Just install and set a valid CZ/SK IBAN as the bank account on your invoices. No settings page, no API keys, no setup wizard.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">Before vs. After</h3>
+        <div class="oe_span12">
+            <table class="table" style="font-size: 15px;">
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Without QR Payment</th>
+                        <th>With QR Payment (this module)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Payment entry</td>
+                        <td style="color: #c0392b;">&#10007; Customer types IBAN, amount, VS manually</td>
+                        <td style="color: green;">&#10003; Scan QR &rarr; everything pre-filled</td>
+                    </tr>
+                    <tr>
+                        <td>Error rate</td>
+                        <td style="color: #c0392b;">&#10007; Typos in IBAN or VS cause mismatched payments</td>
+                        <td style="color: green;">&#10003; Zero-error &mdash; data comes from the invoice</td>
+                    </tr>
+                    <tr>
+                        <td>Payment speed</td>
+                        <td style="color: #888;">1&ndash;3 minutes per payment</td>
+                        <td style="color: green;">&#10003; Under 10 seconds</td>
+                    </tr>
+                    <tr>
+                        <td>Reconciliation</td>
+                        <td style="color: #c0392b;">&#10007; Manual matching when VS is wrong</td>
+                        <td style="color: green;">&#10003; Automatic &mdash; VS always matches</td>
+                    </tr>
+                    <tr>
+                        <td>Customer experience</td>
+                        <td style="color: #888;">Standard</td>
+                        <td style="color: green;">&#10003; Modern, professional, fast</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">Quick Setup</h3>
+        <div class="oe_span12">
+            <ul style="font-size: 15px;">
+                <li><strong>Install the module</strong> &mdash; no configuration needed</li>
+                <li><strong>Set your bank account</strong> &mdash; add a valid IBAN to your company's bank account in Odoo</li>
+                <li><strong>Post an invoice</strong> &mdash; the QR code appears automatically in the Other Info tab and on the PDF</li>
+                <li><strong>Send to customer</strong> &mdash; they scan and pay in seconds</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">Who Is This For?</h3>
+        <div class="oe_span12">
+            <ul style="font-size: 15px;">
+                <li><strong>Businesses issuing invoices in CZK or EUR</strong> &mdash; any company that wants faster payments</li>
+                <li><strong>Accountants</strong> &mdash; reduce manual reconciliation from mistyped variable symbols</li>
+                <li><strong>E-commerce</strong> &mdash; faster payment turnaround on B2B invoices</li>
+                <li><strong>Freelancers</strong> &mdash; professional invoices with one-scan payment</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">Requirements</h3>
+        <div class="oe_span12 text-center">
+            <p style="font-size: 15px;">
+                Odoo 18.0 Community or Enterprise<br/>
+                Depends on: <strong>account</strong> (Invoicing)<br/>
+                Python: <strong>qrcode</strong> (pip install qrcode[pil])
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan" style="color: #0f766e;">Support</h3>
+        <div class="oe_span12 text-center">
+            <p style="font-size: 16px;">
+                Need help? Contact us at <a href="mailto:info@michalvarys.eu"><strong>info@michalvarys.eu</strong></a>
+            </p>
+        </div>
+    </div>
+</section>

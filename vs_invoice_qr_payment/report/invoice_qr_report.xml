@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_invoice_qr_payment"
+              inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='payment_term']" position="after">
+            <div t-if="o.vs_qr_payment_image"
+                 class="mt-3 mb-3 text-center avoid-page-break-inside">
+                <p class="mb-1">
+                    <strong>QR Payment / QR Platba:</strong>
+                </p>
+                <img t-att-src="image_data_uri(o.vs_qr_payment_image)"
+                     style="width: 150px; height: 150px;"
+                     alt="QR Payment Code"/>
+                <p class="mt-1" style="font-size: 9px; color: #666;">
+                    Scan with your banking app /
+                    Naskenujte bankovní aplikací
+                </p>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
