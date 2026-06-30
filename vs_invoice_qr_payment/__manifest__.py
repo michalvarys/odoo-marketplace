@@ -2,12 +2,12 @@
     'name': 'QR Payment on Invoices - SPAYD',
     'version': '18.0.1.0.0',
     'category': 'Accounting/Invoicing',
-    'summary': 'SPAYD QR codes on invoices for Czech & Slovak banks — scan and pay instantly',
+    'summary': 'SPAYD QR codes on invoices — scan and pay instantly',
     'description': 'Add scannable QR payment codes to customer invoices and vendor bills. '
-                   'Follows the SPAYD (Short Payment Descriptor) standard used by all Czech and Slovak banks. '
+                   'Follows the SPAYD (Short Payment Descriptor) standard. '
                    'Customers scan the QR code with their banking app and all payment details — IBAN, amount, '
                    'currency, variable symbol — are filled in automatically. '
-                   'Supports CZ and SK IBANs, CZK and EUR currencies. '
+                   'Supports CZK and EUR currencies. '
                    'QR code appears on the invoice PDF report and in the form view (Other Info tab). '
                    'Full IBAN validation with ISO 13616 checksum. '
                    'Zero configuration — just install and set a valid IBAN on your invoices.',
